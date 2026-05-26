@@ -15,13 +15,13 @@ The complete interactive visual layout can be viewed directly in the repository 
 ## Phase 1: SQL Data Cleaning and Engineering
 The raw data suffered from operational data quality issues, such as trailing dots in occupational categories (like admin.) causing aggregation duplicates, and siloed relational tables. All transformations were executed on the fly within Oracle SQL queries to optimize database performance:
 
-- String Standardization: Handled trailing punctuations dynamically using RTRIM(JOB, '.') to ensure unified grouping.
+- String Standardization: Handled trailing punctuations dynamically using RTRIM(JOB, '.') to ensure unified grouping, successfully consolidating the admin and technician categories into clean visual aggregates
 - Relational Joins: Successfully merged demographic data with active customer card details using structured INNER JOIN operations mapped via CUST_ID.
 
 ## Phase 2: Exploratory Data Analysis and Window Functions
 Advanced analytical concepts and SQL Window Functions were deployed to dive deeper into customer financial behaviors:
 
-- Segment Benchmarking: Implemented AVG() OVER (PARTITION BY...) to measure individual account balances against global and occupational segment averages, pinpointing high-value deviations.
+- Segment Benchmarking: Implemented AVG() OVER (PARTITION BY...) to measure individual account balances against global and occupational segment averages, specifically benchmarking administrators and technicians.
 - Financial Ranking: Applied RANK() OVER partitioned by demographic attributes to isolate top-depositing clients within specific target markets.
 
 ## Phase 3: Power BI Dashboard and UI/UX Design
